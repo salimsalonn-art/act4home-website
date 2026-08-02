@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Contact() {
+  
+  // This hook runs once when the Contact page loads
+  useEffect(() => {
+    const formElement = document.getElementById('quote-form');
+    
+    if (formElement) {
+      // Smoothly scrolls to the top of the element
+      formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // Fallback
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-6 sm:px-12">
-      <div className="max-w-6xl mx-auto">
+      {/* Added the ID here so it scrolls exactly to the top of the page content */}
+      <div id="quote-form" className="max-w-6xl mx-auto">
         
         {/* Page Header */}
         <div className="text-center mb-16">
