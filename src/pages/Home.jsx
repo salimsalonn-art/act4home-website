@@ -10,7 +10,7 @@ import home3Img from '../assets/home3.jpg';
 import home4Img from '../assets/home4.jpg'; 
 import home5Img from '../assets/home5.jpg'; 
 
-// Import your product/brand images here (Make sure to add these to your assets folder!)
+// Import your product/brand images here
 import brand1Img from '../assets/brand1.png';
 import brand2Img from '../assets/brand2.png';
 import brand3Img from '../assets/brand3.png';
@@ -61,17 +61,17 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       
-      {/* Hero Section with Bottom-Right Aligned Buttons */}
+      {/* Hero Section - FIXED FOR MOBILE */}
       <section 
-        className="w-full h-[60vh] min-h-[400px] bg-cover bg-center bg-no-repeat flex items-end pb-8 md:pb-12 border-b border-gray-100"
+        className="w-full min-h-[500px] md:min-h-[600px] lg:h-[75vh] bg-cover bg-center bg-no-repeat flex items-end pb-8 md:pb-12 border-b border-gray-100"
         style={{ backgroundImage: `url(${backgroundImg})` }}
       >
-        <div className="max-w-6xl mx-auto px-6 w-full flex justify-end">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/contact" className="px-8 py-3 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition-colors text-lg shadow-lg">
+        <div className="max-w-6xl mx-auto px-6 w-full flex sm:justify-end">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <Link to="/contact" className="px-8 py-4 sm:py-3 bg-blue-600 text-white font-bold text-center rounded-md hover:bg-blue-700 transition-colors text-lg shadow-lg">
               Get a Free Quote
             </Link>
-            <Link to="/services" className="px-8 py-3 bg-white text-blue-600 font-bold rounded-md hover:bg-gray-50 transition-colors text-lg shadow-lg">
+            <Link to="/services" className="px-8 py-4 sm:py-3 bg-white text-blue-600 font-bold text-center rounded-md hover:bg-gray-50 transition-colors text-lg shadow-lg">
               View Our Services
             </Link>
           </div>
@@ -133,7 +133,6 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Custom CSS for the scrolling animation */}
         <style>
           {`
             @keyframes scroll {
@@ -149,9 +148,7 @@ export default function Home() {
           `}
         </style>
 
-        {/* Marquee Track Container */}
         <div className="relative w-full flex overflow-hidden group">
-          {/* We duplicate the array [...productBrands, ...productBrands] to create a seamless infinite loop */}
           <div className="flex w-max animate-scroll gap-12 items-center px-6">
             {[...productBrands, ...productBrands].map((brand, index) => (
               <div 
