@@ -61,13 +61,27 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       
-      {/* Hero Section - FIXED FOR MOBILE */}
-      <section 
-        className="w-full min-h-[500px] md:min-h-[600px] lg:h-[75vh] bg-cover bg-center bg-no-repeat flex items-end pb-8 md:pb-12 border-b border-gray-100"
-        style={{ backgroundImage: `url(${backgroundImg})` }}
-      >
-        <div className="max-w-6xl mx-auto px-6 w-full flex sm:justify-end">
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+      {/* Hero Section - BULLETPROOF MOBILE FIX */}
+      <section className="relative w-full bg-[#0F1626] border-b border-gray-100 flex flex-col md:block">
+        
+        {/* MOBILE VIEW: Shows the full image naturally like a banner so text is never cut off */}
+        <div className="block md:hidden w-full">
+          <img 
+            src={backgroundImg} 
+            alt="Act 4 Home Services" 
+            className="w-full h-auto object-contain"
+          />
+        </div>
+
+        {/* DESKTOP VIEW: Uses your original full-screen background image approach */}
+        <div 
+          className="hidden md:block absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${backgroundImg})` }}
+        ></div>
+
+        {/* BUTTONS: Sit directly below the image on mobile, and float over the bottom-right on desktop */}
+        <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-8 md:min-h-[500px] lg:h-[75vh] flex flex-col justify-end md:pb-12">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto sm:self-end">
             <Link to="/contact" className="px-8 py-4 sm:py-3 bg-blue-600 text-white font-bold text-center rounded-md hover:bg-blue-700 transition-colors text-lg shadow-lg">
               Get a Free Quote
             </Link>
@@ -76,6 +90,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
+
       </section>
 
       {/* Featured Services Section */}
