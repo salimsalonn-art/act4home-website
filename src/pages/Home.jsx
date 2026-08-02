@@ -65,11 +65,11 @@ export default function Home() {
       <section className="relative w-full bg-[#0F1626] border-b border-gray-100 flex flex-col md:block">
         
         {/* MOBILE VIEW: Shows the full image naturally like a banner so text is never cut off */}
-        <div className="block md:hidden w-full">
+        <div className="block md:hidden w-full overflow-hidden">
           <img 
             src={backgroundImg} 
             alt="Act 4 Home Services" 
-            className="w-full h-auto object-contain"
+            className="w-full h-auto object-contain scale-110 origin-center"
           />
         </div>
 
