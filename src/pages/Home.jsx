@@ -74,7 +74,7 @@ export default function Home() {
     { name: "Brand 5", image: brand5Img },
   ];
 
-  // Load Trustmary Widget
+  //Load Trustmary Widget
   useEffect(() => {
     if (!widgetRef.current) return;
 
