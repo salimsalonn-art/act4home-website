@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Import your background and service images here
@@ -22,6 +22,35 @@ import brand5Img from '../assets/brand5.png';
 export default function Home() {
   // Create a reference point for the Trustmary widget
   const widgetRef = useRef(null);
+  
+  // Carousel reference and state
+  const carouselRef = useRef(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+
+  // Auto-scroll effect
+  useEffect(() => {
+    if (!isAutoScrolling) return; // Stop if user interacted
+
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+        
+        // Only run this if the container is actually scrollable (Mobile view)
+        if (scrollWidth > clientWidth) {
+          // If we reached the end, snap back to the start
+          if (scrollLeft + clientWidth >= scrollWidth - 10) {
+            carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+          } else {
+            // Scroll to the right by one card's width + the 24px gap
+            const cardWidth = carouselRef.current.children[0].clientWidth + 24;
+            carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+          }
+        }
+      }
+    }, 3000); // Scrolls every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoScrolling]);
   
   const featuredServices = [
     { title: "Painting & Decorating", image: home4Img }, // Update with home6Img when ready
@@ -130,7 +159,12 @@ export default function Home() {
             <div className="w-24 h-1 bg-red-700 mx-auto rounded-full"></div>
           </div>
 
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div 
+            ref={carouselRef}
+            onTouchStart={() => setIsAutoScrolling(false)}
+            onMouseDown={() => setIsAutoScrolling(false)}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
             {featuredServices.map((service, index) => (
               <div 
                 key={index} 
