@@ -63,7 +63,7 @@ export default function Navbar() {
       {/* BOTTOM ROW: Centered Slogan */}
       <div className="w-full text-center pb-3 px-4 -mt-1">
         <span 
-          className="block lg:inline text-red-700 text-sm sm:text-base md:text-lg xl:text-xl font-sans font-medium tracking-wide lg:font-['Caveat',_cursive] lg:font-normal lg:tracking-normal"
+          className="block lg:inline text-red-700 text-sm sm:text-base md:text-lg xl:text-xl font-sans font-bold tracking-wide lg:font-['Caveat',_cursive] lg:tracking-normal"
         >
           Don't trust your home to a stranger. <br />
           Hire a proven professional.
