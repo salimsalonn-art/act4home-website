@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+// Import your logo image here. 
+// Change 'logo.png' if your file is named something else (like logo.svg or act4home-logo.png)
+import logo from '../assets/logo.png'; 
+
 export default function Navbar() {
   // This state controls whether the mobile menu is open or closed
   const [isOpen, setIsOpen] = useState(false);
@@ -11,8 +15,14 @@ export default function Navbar() {
         
         {/* Logo & Slogan Area */}
         <div className="flex items-center gap-4">
-          <Link to="/" className="font-heading text-2xl font-extrabold tracking-tight text-gray-900">
-            ACT4<span className="text-blue-600">HOME</span>
+          
+          {/* Updated Logo Image */}
+          <Link to="/" className="flex items-center">
+            <img 
+              src={logo} 
+              alt="Act 4 Home Logo" 
+              className="h-10 md:h-12 w-auto object-contain" 
+            />
           </Link>
           
           {/* Slogan */}
@@ -26,6 +36,9 @@ export default function Navbar() {
           <Link to="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</Link>
           <Link to="/services" className="text-gray-600 hover:text-blue-600 transition-colors">Services</Link>
           <Link to="/airbnb" className="text-gray-600 hover:text-blue-600 transition-colors">Airbnb Management</Link>
+          
+          {/* Added Testimonials Link */}
+          <a href="/#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors">Testimonials</a>
           
           {/* Added Phone Number CTA */}
           <a href="tel:+442030048983" className="text-gray-900 hover:text-blue-600 font-bold transition-colors pl-2 border-l border-gray-200">
@@ -56,10 +69,13 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden flex flex-col space-y-4 mt-4 pb-4 border-t border-gray-100 pt-4 px-2">
-          {/* Notice we added onClick={() => setIsOpen(false)} to close the menu when a link is clicked */}
+          
           <Link to="/" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
           <Link to="/services" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Services</Link>
           <Link to="/airbnb" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Airbnb Management</Link>
+          
+          {/* Added Testimonials Link for Mobile */}
+          <a href="/#testimonials" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Testimonials</a>
           
           <a href="tel:+442030048983" className="block text-gray-900 font-bold py-2">Call: 020 3004 8983</a>
           

@@ -21,7 +21,6 @@ import brand5Img from '../assets/brand5.png';
 
 export default function Home() {
   
-  // 1. Define your services here - Painting & Decorating moved to the top
   const featuredServices = [
     { title: "Painting & Decorating", image: home4Img }, // Update with home6Img when ready
     { title: "Bespoke Kitchens", image: homeImg },
@@ -32,7 +31,6 @@ export default function Home() {
     { title: "Flooring & Decking", image: home5Img }
   ];
 
-  // 2. Define the product brands for the scrolling marquee
   const productBrands = [
     { name: "Brand 1", image: brand1Img },
     { name: "Brand 2", image: brand2Img },
@@ -41,7 +39,6 @@ export default function Home() {
     { name: "Brand 5", image: brand5Img },
   ];
 
-  // 3. Tagembed Widget script hook
   useEffect(() => {
     const existingScript = document.querySelector('script[src="https://widget.tagembed.com/embed.min.js"]');
     if (existingScript) {
@@ -64,7 +61,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       
-      {/* 24/7 Emergency Banner - ADDED HERE */}
+      {/* 24/7 Emergency Banner */}
       <div className="bg-red-600 text-white font-bold text-center py-2 px-4 shadow-md z-20 relative">
         <p className="animate-pulse">🚨 24/7 Emergency Call-Outs Serving West London 🚨</p>
       </div>
@@ -74,12 +71,6 @@ export default function Home() {
         
         {/* MOBILE VIEW */}
         <div className="block md:hidden w-full overflow-hidden relative">
-           {/* New Handwritten Text Overlay for Mobile */}
-           <div className="absolute top-8 w-full text-center z-10 px-4">
-            <h2 className="text-white text-3xl font-bold drop-shadow-md" style={{ fontFamily: "'Caveat', cursive", transform: "rotate(-2deg)" }}>
-              Don't trust your home...
-            </h2>
-          </div>
           <img 
             src={backgroundImg} 
             alt="Act 4 Home Services" 
@@ -92,10 +83,6 @@ export default function Home() {
           className="hidden md:flex absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat items-start justify-center pt-24"
           style={{ backgroundImage: `url(${backgroundImg})` }}
         >
-          {/* New Handwritten Text Overlay for Desktop */}
-          <h2 className="text-white text-5xl lg:text-6xl font-bold drop-shadow-xl" style={{ fontFamily: "'Caveat', cursive", transform: "rotate(-2deg)" }}>
-             Don't trust your home...
-          </h2>
         </div>
 
         {/* BUTTONS */}
@@ -156,7 +143,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Google Reviews Section - MOVED UP */}
+      {/* Google Reviews Section */}
       <section id="testimonials" className="py-20 bg-gray-50 px-6 border-b border-gray-200">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -207,11 +194,6 @@ export default function Home() {
                 key={index} 
                 className="flex flex-col items-center gap-2 flex-none w-32 md:w-48 p-4"
               >
-                {/* 
-                  REMOVED GRAYSCALE: 
-                  The classes 'grayscale', 'hover:grayscale-0', 'opacity-70', and 'hover:opacity-100' 
-                  have been removed so the logos display in full, vibrant color instantly.
-                */}
                 <div className="h-24 w-full bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center p-2">
                   <img 
                     src={brand.image} 
@@ -219,7 +201,6 @@ export default function Home() {
                     className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105" 
                   />
                 </div>
-                {/* BRAND NAMES ADDED */}
                 <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: 'Inter, sans-serif' }}>
                   {brand.name}
                 </span>
