@@ -9,6 +9,8 @@ import home2Img from '../assets/home2.jpg';
 import home3Img from '../assets/home3.jpg';
 import home4Img from '../assets/home4.jpg'; 
 import home5Img from '../assets/home5.jpg'; 
+// Add your new Painting image here:
+// import home6Img from '../assets/home6.jpg'; 
 
 // Import your product/brand images here
 import brand1Img from '../assets/brand1.png';
@@ -19,8 +21,9 @@ import brand5Img from '../assets/brand5.png';
 
 export default function Home() {
   
-  // 1. Define your services here
+  // 1. Define your services here - Painting & Decorating moved to the top
   const featuredServices = [
+    { title: "Painting & Decorating", image: home4Img }, // Update with home6Img when ready
     { title: "Bespoke Kitchens", image: homeImg },
     { title: "Bathroom Upgrades", image: home1Img },
     { title: "Custom Carpentry", image: home2Img },
@@ -61,11 +64,22 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       
-      {/* Hero Section - BULLETPROOF MOBILE FIX */}
+      {/* 24/7 Emergency Banner - ADDED HERE */}
+      <div className="bg-red-600 text-white font-bold text-center py-2 px-4 shadow-md z-20 relative">
+        <p className="animate-pulse">🚨 24/7 Emergency Call-Outs Serving West London 🚨</p>
+      </div>
+
+      {/* Hero Section */}
       <section className="relative w-full bg-[#0F1626] border-b border-gray-100 flex flex-col md:block">
         
-        {/* MOBILE VIEW: Shows the full image naturally like a banner so text is never cut off */}
-        <div className="block md:hidden w-full overflow-hidden">
+        {/* MOBILE VIEW */}
+        <div className="block md:hidden w-full overflow-hidden relative">
+           {/* New Handwritten Text Overlay for Mobile */}
+           <div className="absolute top-8 w-full text-center z-10 px-4">
+            <h2 className="text-white text-3xl font-bold drop-shadow-md" style={{ fontFamily: "'Caveat', cursive", transform: "rotate(-2deg)" }}>
+              Don't trust your home...
+            </h2>
+          </div>
           <img 
             src={backgroundImg} 
             alt="Act 4 Home Services" 
@@ -73,13 +87,18 @@ export default function Home() {
           />
         </div>
 
-        {/* DESKTOP VIEW: Uses your original full-screen background image approach */}
+        {/* DESKTOP VIEW */}
         <div 
-          className="hidden md:block absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          className="hidden md:flex absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat items-start justify-center pt-24"
           style={{ backgroundImage: `url(${backgroundImg})` }}
-        ></div>
+        >
+          {/* New Handwritten Text Overlay for Desktop */}
+          <h2 className="text-white text-5xl lg:text-6xl font-bold drop-shadow-xl" style={{ fontFamily: "'Caveat', cursive", transform: "rotate(-2deg)" }}>
+             Don't trust your home...
+          </h2>
+        </div>
 
-        {/* BUTTONS: Sit directly below the image on mobile, and float over the bottom-right on desktop */}
+        {/* BUTTONS */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-8 md:min-h-[500px] lg:h-[75vh] flex flex-col justify-end md:pb-12">
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto sm:self-end">
             <Link to="/contact" className="px-8 py-4 sm:py-3 bg-blue-600 text-white font-bold text-center rounded-md hover:bg-blue-700 transition-colors text-lg shadow-lg">
@@ -137,8 +156,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Google Reviews Section - MOVED UP */}
+      <section id="testimonials" className="py-20 bg-gray-50 px-6 border-b border-gray-200">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            Trusted by Homeowners
+          </h2>
+          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-12"></div>
+          
+          <div 
+            className="tagembed-widget" 
+            style={{ width: '100%', height: '100%', overflow: 'auto' }} 
+            data-widget-id="331406" 
+            data-website="1"
+          ></div>
+          
+        </div>
+      </section>
+
       {/* Infinite Scrolling Product Marquee */}
-      <section className="py-12 bg-gray-50 overflow-hidden border-b border-gray-200">
+      <section className="py-12 bg-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 mb-8 text-center">
           <h2 className="text-2xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             Premium Materials We Trust
@@ -168,31 +205,27 @@ export default function Home() {
             {[...productBrands, ...productBrands].map((brand, index) => (
               <div 
                 key={index} 
-                className="flex-none w-32 md:w-48 h-24 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center p-4"
+                className="flex flex-col items-center gap-2 flex-none w-32 md:w-48 p-4"
               >
-                <img 
-                  src={brand.image} 
-                  alt={brand.name} 
-                  className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100" 
-                />
+                {/* 
+                  REMOVED GRAYSCALE: 
+                  The classes 'grayscale', 'hover:grayscale-0', 'opacity-70', and 'hover:opacity-100' 
+                  have been removed so the logos display in full, vibrant color instantly.
+                */}
+                <div className="h-24 w-full bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center p-2">
+                  <img 
+                    src={brand.image} 
+                    alt={brand.name} 
+                    className="max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105" 
+                  />
+                </div>
+                {/* BRAND NAMES ADDED */}
+                <span className="text-sm font-semibold text-gray-700" style={{ fontFamily: 'Inter, sans-serif' }}>
+                  {brand.name}
+                </span>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Google Reviews Section */}
-      <section className="py-20 bg-white px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading">Trusted by Homeowners</h2>
-          
-          <div 
-            className="tagembed-widget" 
-            style={{ width: '100%', height: '100%', overflow: 'auto' }} 
-            data-widget-id="331406" 
-            data-website="1"
-          ></div>
-          
         </div>
       </section>
 
