@@ -65,8 +65,7 @@ export default function Navbar() {
         <span 
           className="block lg:inline text-red-700 text-sm sm:text-base md:text-lg xl:text-xl font-sans font-medium tracking-wide lg:font-['Caveat',_cursive] lg:font-normal lg:tracking-normal"
         >
-          Don't trust your home to a stranger. 
-          Hire a proven professional.
+          Don't trust your home to a stranger.                Hire a proven professional.
         </span>
       </div>
 
