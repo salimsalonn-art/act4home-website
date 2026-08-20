@@ -28,7 +28,7 @@ export default function Home() {
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const animationRef = useRef(null);
 
-  // Continuous smooth scroll effect
+  // Continuous smooth scroll effect for Mobile Carousel
   useEffect(() => {
     if (!isAutoScrolling) {
       cancelAnimationFrame(animationRef.current);
@@ -134,75 +134,81 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Google Reviews Section */}
-      <section id="testimonials" className="py-20 bg-gray-50 px-6 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-            Trusted by Homeowners
-          </h2>
-          <div className="w-24 h-1 bg-red-700 mx-auto rounded-full mb-12"></div>
-          
-          {/* Trustmary Widget Container */}
-          <div 
-            ref={widgetRef}
-            className="w-full min-h-[400px]" 
-          >
-          </div>
-          
-        </div>
-      </section>
+      {/* --- START SWAPPABLE CONTAINER (Services on top for mobile, Reviews on top for desktop) --- */}
+      <div className="flex flex-col-reverse md:flex-col w-full">
 
-      {/* Featured Services Section */}
-      <section className="py-16 px-6 bg-white border-b border-gray-100">
-        <div className="max-w-6xl mx-auto">
-          
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-              Our Services
+        {/* Google Reviews Section */}
+        <section id="testimonials" className="py-20 bg-gray-50 px-6 border-b border-gray-200">
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              Trusted by Homeowners
             </h2>
-            <div className="w-24 h-1 bg-red-700 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-red-700 mx-auto rounded-full mb-12"></div>
+            
+            {/* Trustmary Widget Container */}
+            <div 
+              ref={widgetRef}
+              className="w-full min-h-[400px]" 
+            >
+            </div>
+            
           </div>
+        </section>
 
-          <div 
-            ref={carouselRef}
-            onTouchStart={() => setIsAutoScrolling(false)}
-            onMouseDown={() => setIsAutoScrolling(false)}
-            className="flex overflow-x-auto gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-          >
-            {featuredServices.map((service, index) => (
-              <div 
-                key={index} 
-                className="bg-gray-50 rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[85vw] sm:min-w-[350px] md:min-w-0 shrink-0"
-              >
+        {/* Featured Services Section */}
+        <section className="py-16 px-6 bg-white border-b border-gray-100">
+          <div className="max-w-6xl mx-auto">
+            
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                Our Services
+              </h2>
+              <div className="w-24 h-1 bg-red-700 mx-auto rounded-full"></div>
+            </div>
+
+            <div 
+              ref={carouselRef}
+              onTouchStart={() => setIsAutoScrolling(false)}
+              onMouseDown={() => setIsAutoScrolling(false)}
+              className="flex overflow-x-auto gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            >
+              {featuredServices.map((service, index) => (
                 <div 
-                  className="h-56 w-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${service.image})`, backgroundColor: '#e2e8f0' }}
-                ></div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-slate-900 mb-6 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                    {service.title}
-                  </h3>
-                  <div className="mt-auto flex justify-center">
-                    <Link 
-                      to="/contact" 
-                      className="px-6 py-2 bg-red-700 text-white font-bold rounded-md hover:bg-red-800 transition-colors w-full text-center"
-                    >
-                      Book this Service
-                    </Link>
+                  key={index} 
+                  className="bg-gray-50 rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[85vw] sm:min-w-[350px] md:min-w-0 shrink-0"
+                >
+                  <div 
+                    className="h-56 w-full bg-cover bg-center"
+                    style={{ backgroundImage: `url(${service.image})`, backgroundColor: '#e2e8f0' }}
+                  ></div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold text-slate-900 mb-6 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      {service.title}
+                    </h3>
+                    <div className="mt-auto flex justify-center">
+                      <Link 
+                        to="/contact" 
+                        className="px-6 py-2 bg-red-700 text-white font-bold rounded-md hover:bg-red-800 transition-colors w-full text-center"
+                      >
+                        Book this Service
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-center mt-12">
-            <Link to="/services" className="text-red-700 font-bold hover:underline text-lg">
-              View all our services &rarr;
-            </Link>
-          </div>
+            <div className="text-center mt-12">
+              <Link to="/services" className="text-red-700 font-bold hover:underline text-lg">
+                View all our services &rarr;
+              </Link>
+            </div>
 
-        </div>
-      </section>
+          </div>
+        </section>
+      
+      </div>
+      {/* --- END SWAPPABLE CONTAINER --- */}
 
       {/* Infinite Scrolling Product Marquee */}
       <section className="py-12 bg-white overflow-hidden">
