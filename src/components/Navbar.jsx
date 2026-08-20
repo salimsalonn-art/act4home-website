@@ -10,10 +10,10 @@ export default function Navbar() {
   return (
     <nav className="bg-gray-100 text-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-200">
       
-      {/* TOP ROW: Reduced top/bottom padding to py-2 to make it slimmer */}
+      {/* TOP ROW: Logo and Mobile Menu Toggle */}
       <div className="max-w-[1400px] mx-auto flex items-center justify-between py-2 px-4">
         
-        {/* 1. LEFT: Logo (Reduced height classes) */}
+        {/* 1. LEFT: Logo */}
         <div className="flex-1 flex justify-start">
           <Link to="/" className="flex items-center shrink-0">
             <img 
@@ -24,7 +24,7 @@ export default function Navbar() {
           </Link>
         </div>
         
-        {/* 2. CENTER: Navigation Links */}
+        {/* 2. CENTER: Navigation Links (Hidden on Mobile) */}
         <div className="hidden lg:flex flex-none items-center space-x-6 xl:space-x-8 font-medium whitespace-nowrap text-sm xl:text-base">
           <Link to="/" className="text-gray-700 hover:text-red-700 transition-colors">Home</Link>
           <Link to="/services" className="text-gray-700 hover:text-red-700 transition-colors">Services</Link>
@@ -32,7 +32,7 @@ export default function Navbar() {
           <a href="/#testimonials" className="text-gray-700 hover:text-red-700 transition-colors">Testimonials</a>
         </div>
 
-        {/* 3. RIGHT: Phone & Quote Button */}
+        {/* 3. RIGHT: Phone & Quote Button (Hidden on Mobile) */}
         <div className="flex-1 flex justify-end items-center">
           <div className="hidden lg:flex items-center space-x-6 font-medium whitespace-nowrap shrink-0 text-sm xl:text-base">
             <a href="tel:+442030048983" className="text-gray-900 hover:text-red-700 font-bold transition-colors">
@@ -60,10 +60,10 @@ export default function Navbar() {
 
       </div>
 
-      {/* BOTTOM ROW: Centered Slogan (Reduced text size slightly) */}
-      <div className="hidden lg:block w-full text-center pb-2 -mt-1">
+      {/* BOTTOM ROW: Centered Slogan (Now Visible on Mobile) */}
+      <div className="w-full text-center pb-3 px-4 -mt-1">
         <span 
-          className="text-lg xl:text-xl text-red-700 whitespace-nowrap"
+          className="text-base md:text-lg xl:text-xl text-red-700 block lg:inline"
           style={{ fontFamily: "'Caveat', cursive" }}
         >
           Don't trust your home to a stranger. Hire a proven professional.
