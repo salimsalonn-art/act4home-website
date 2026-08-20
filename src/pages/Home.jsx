@@ -76,20 +76,21 @@ export default function Home() {
 
   // Load Trustmary Widget
   useEffect(() => {
-    // Make sure our target div actually exists first
     if (!widgetRef.current) return;
+
+    // Check if we've already injected the script to prevent duplicates
+    if (widgetRef.current.querySelector('script')) return;
 
     const script = document.createElement('script');
     script.src = 'https://widget.trustmary.com/3Usjta8ZI';
     script.async = true;
     
-    // Inject the script directly into our specific div
     widgetRef.current.appendChild(script);
 
     return () => {
-      // Clean up when leaving the page
-      if (widgetRef.current && widgetRef.current.contains(script)) {
-        widgetRef.current.removeChild(script);
+      // Completely empty the container on cleanup so it doesn't double-render the widget
+      if (widgetRef.current) {
+        widgetRef.current.innerHTML = '';
       }
     };
   }, []);
