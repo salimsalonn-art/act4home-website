@@ -10,22 +10,22 @@ export default function Navbar() {
   return (
     <nav className="bg-gray-100 text-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-200">
       
-      {/* TOP ROW: Split into 3 equal sections to center the links */}
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between p-4">
+      {/* TOP ROW: Reduced top/bottom padding to py-2 to make it slimmer */}
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between py-2 px-4">
         
-        {/* 1. LEFT: Logo (Made much larger) */}
+        {/* 1. LEFT: Logo (Reduced height classes) */}
         <div className="flex-1 flex justify-start">
           <Link to="/" className="flex items-center shrink-0">
             <img 
               src={logo} 
               alt="Act 4 Home Logo" 
-              className="h-20 md:h-28 lg:h-32 w-auto object-contain" 
+              className="h-12 md:h-16 lg:h-20 w-auto object-contain" 
             />
           </Link>
         </div>
         
         {/* 2. CENTER: Navigation Links */}
-        <div className="hidden lg:flex flex-none items-center space-x-6 xl:space-x-8 font-medium whitespace-nowrap">
+        <div className="hidden lg:flex flex-none items-center space-x-6 xl:space-x-8 font-medium whitespace-nowrap text-sm xl:text-base">
           <Link to="/" className="text-gray-700 hover:text-red-700 transition-colors">Home</Link>
           <Link to="/services" className="text-gray-700 hover:text-red-700 transition-colors">Services</Link>
           <Link to="/airbnb" className="text-gray-700 hover:text-red-700 transition-colors">Airbnb Management</Link>
@@ -34,11 +34,11 @@ export default function Navbar() {
 
         {/* 3. RIGHT: Phone & Quote Button */}
         <div className="flex-1 flex justify-end items-center">
-          <div className="hidden lg:flex items-center space-x-6 font-medium whitespace-nowrap shrink-0">
+          <div className="hidden lg:flex items-center space-x-6 font-medium whitespace-nowrap shrink-0 text-sm xl:text-base">
             <a href="tel:+442030048983" className="text-gray-900 hover:text-red-700 font-bold transition-colors">
               020 3004 8983
             </a>
-            <Link to="/contact" className="px-6 py-2.5 bg-red-700 text-white rounded-md hover:bg-red-800 transition-colors shadow-sm">
+            <Link to="/contact" className="px-5 py-2 bg-red-700 text-white rounded-md hover:bg-red-800 transition-colors shadow-sm">
               Get a Quote
             </Link>
           </div>
@@ -60,10 +60,10 @@ export default function Navbar() {
 
       </div>
 
-      {/* BOTTOM ROW: Centered Slogan */}
-      <div className="hidden lg:block w-full text-center pb-4 -mt-4">
+      {/* BOTTOM ROW: Centered Slogan (Reduced text size slightly) */}
+      <div className="hidden lg:block w-full text-center pb-2 -mt-1">
         <span 
-          className="text-xl xl:text-2xl text-red-700 whitespace-nowrap"
+          className="text-lg xl:text-xl text-red-700 whitespace-nowrap"
           style={{ fontFamily: "'Caveat', cursive" }}
         >
           Don't trust your home to a stranger. Hire a proven professional.
