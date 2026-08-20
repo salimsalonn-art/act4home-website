@@ -62,7 +62,7 @@ export default function Home() {
     <div className="flex flex-col w-full">
       
       {/* 24/7 Emergency Banner */}
-      <div className="bg-red-600 text-white font-bold text-center py-2 px-4 shadow-md z-20 relative">
+      <div className="bg-red-700 text-white font-bold text-center py-2 px-4 shadow-md z-20 relative">
         <p className="animate-pulse">🚨 24/7 Emergency Call-Outs Serving West London 🚨</p>
       </div>
 
@@ -96,7 +96,24 @@ export default function Home() {
             </Link>
           </div>
         </div>
+      </section>
 
+      {/* Google Reviews Section - MOVED TO THE VERY TOP */}
+      <section id="testimonials" className="py-20 bg-gray-50 px-6 border-b border-gray-200">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            Trusted by Homeowners
+          </h2>
+          <div className="w-24 h-1 bg-red-700 mx-auto rounded-full mb-12"></div>
+          
+          <div 
+            className="tagembed-widget" 
+            style={{ width: '100%', height: '100%', overflow: 'auto' }} 
+            data-widget-id="331406" 
+            data-website="1"
+          ></div>
+          
+        </div>
       </section>
 
       {/* Featured Services Section */}
@@ -140,24 +157,6 @@ export default function Home() {
             </Link>
           </div>
 
-        </div>
-      </section>
-
-      {/* Google Reviews Section */}
-      <section id="testimonials" className="py-20 bg-gray-50 px-6 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-            Trusted by Homeowners
-          </h2>
-          <div className="w-24 h-1 bg-red-700 mx-auto rounded-full mb-12"></div>
-          
-          <div 
-            className="tagembed-widget" 
-            style={{ width: '100%', height: '100%', overflow: 'auto' }} 
-            data-widget-id="331406" 
-            data-website="1"
-          ></div>
-          
         </div>
       </section>
 
