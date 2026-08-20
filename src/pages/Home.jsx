@@ -26,30 +26,34 @@ export default function Home() {
   // Carousel reference and state
   const carouselRef = useRef(null);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const animationRef = useRef(null);
 
-  // Auto-scroll effect
+  // Continuous smooth scroll effect
   useEffect(() => {
-    if (!isAutoScrolling) return; // Stop if user interacted
+    if (!isAutoScrolling) {
+      cancelAnimationFrame(animationRef.current);
+      return;
+    }
 
-    const interval = setInterval(() => {
+    const playScroll = () => {
       if (carouselRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
         
-        // Only run this if the container is actually scrollable (Mobile view)
         if (scrollWidth > clientWidth) {
-          // If we reached the end, snap back to the start
-          if (scrollLeft + clientWidth >= scrollWidth - 10) {
-            carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            // Scroll to the right by one card's width + the 24px gap
-            const cardWidth = carouselRef.current.children[0].clientWidth + 24;
-            carouselRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
+          carouselRef.current.scrollLeft += 1; // Change to 0.5 for slower, 2 for faster
+          
+          // If it reaches the very end, instantly loop back to the start
+          if (scrollLeft >= scrollWidth - clientWidth - 1) {
+            carouselRef.current.scrollLeft = 0;
           }
         }
       }
-    }, 3000); // Scrolls every 3 seconds
+      animationRef.current = requestAnimationFrame(playScroll);
+    };
 
-    return () => clearInterval(interval);
+    animationRef.current = requestAnimationFrame(playScroll);
+
+    return () => cancelAnimationFrame(animationRef.current);
   }, [isAutoScrolling]);
   
   const featuredServices = [
@@ -163,12 +167,12 @@ export default function Home() {
             ref={carouselRef}
             onTouchStart={() => setIsAutoScrolling(false)}
             onMouseDown={() => setIsAutoScrolling(false)}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            className="flex overflow-x-auto gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
           >
             {featuredServices.map((service, index) => (
               <div 
                 key={index} 
-                className="bg-gray-50 rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[85vw] sm:min-w-[350px] md:min-w-0 snap-center shrink-0"
+                className="bg-gray-50 rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[85vw] sm:min-w-[350px] md:min-w-0 shrink-0"
               >
                 <div 
                   className="h-56 w-full bg-cover bg-center"
