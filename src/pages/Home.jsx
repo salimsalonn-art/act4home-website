@@ -130,9 +130,12 @@ export default function Home() {
             <div className="w-24 h-1 bg-red-700 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {featuredServices.map((service, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow">
+              <div 
+                key={index} 
+                className="bg-gray-50 rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[85vw] sm:min-w-[350px] md:min-w-0 snap-center shrink-0"
+              >
                 <div 
                   className="h-56 w-full bg-cover bg-center"
                   style={{ backgroundImage: `url(${service.image})`, backgroundColor: '#e2e8f0' }}
