@@ -74,7 +74,7 @@ export default function Navbar() {
           <Link to="/services" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Services</Link>
           <Link to="/airbnb" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Airbnb Management</Link>
           
-          {/* Added Testimonials Link for Mobile */}
+          {/* dded Testimonials Link for Mobile */}
           <a href="/#testimonials" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Testimonials</a>
           
           <a href="tel:+442030048983" className="block text-gray-900 font-bold py-2">Call: 020 3004 8983</a>
