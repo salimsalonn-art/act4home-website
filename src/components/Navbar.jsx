@@ -60,11 +60,10 @@ export default function Navbar() {
 
       </div>
 
-      {/* BOTTOM ROW: Centered Slogan (Now Visible on Mobile) */}
+      {/* BOTTOM ROW: Centered Slogan */}
       <div className="w-full text-center pb-3 px-4 -mt-1">
         <span 
-          className="text-base md:text-lg xl:text-xl text-red-700 block lg:inline"
-          style={{ fontFamily: "'Caveat', cursive" }}
+          className="block lg:inline text-red-700 text-sm sm:text-base md:text-lg xl:text-xl font-sans font-medium tracking-wide lg:font-['Caveat',_cursive] lg:font-normal lg:tracking-normal"
         >
           Don't trust your home to a stranger. Hire a proven professional.
         </span>
