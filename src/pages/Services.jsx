@@ -49,7 +49,7 @@ export default function Services() {
     <div className="min-h-screen bg-gray-50 flex flex-col">
       
       {/* Page Header */}
-      <div className="bg-[#0F1626] text-white py-20 px-6">
+      <div className="bg-gray-900 text-white py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             Our Premium Services
@@ -87,7 +87,7 @@ export default function Services() {
                 <div>
                   <Link 
                     to="/contact" 
-                    className="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition-colors shadow-md"
+                    className="inline-block px-8 py-3 bg-red-700 text-white font-bold rounded-md hover:bg-red-800 transition-colors shadow-md"
                   >
                     Request a Quote
                   </Link>
@@ -99,7 +99,7 @@ export default function Services() {
       </div>
 
       {/* Bottom Call to Action */}
-      <div className="bg-blue-600 text-white py-16 px-6 text-center">
+      <div className="bg-red-700 text-white py-16 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             Don't see what you're looking for?
@@ -109,7 +109,7 @@ export default function Services() {
           </p>
           <Link 
             to="/contact" 
-            className="inline-block px-8 py-4 bg-white text-blue-600 font-bold rounded-md hover:bg-gray-100 transition-colors text-lg shadow-lg"
+            className="inline-block px-8 py-4 bg-white text-red-700 font-bold rounded-md hover:bg-gray-100 transition-colors text-lg shadow-lg"
           >
             Contact Us Today
           </Link>

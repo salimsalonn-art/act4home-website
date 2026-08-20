@@ -2,21 +2,18 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Import your logo image here. 
-// Change 'logo.png' if your file is named something else (like logo.svg or act4home-logo.png)
 import logo from '../assets/logo.png'; 
 
 export default function Navbar() {
-  // This state controls whether the mobile menu is open or closed
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white text-gray-900 p-4 shadow-sm sticky top-0 z-50 border-b border-gray-100">
+    <nav className="bg-gray-100 text-gray-900 p-4 shadow-sm sticky top-0 z-50 border-b border-gray-200">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         
         {/* Logo & Slogan Area */}
         <div className="flex items-center gap-4">
           
-          {/* Updated Logo Image */}
           <Link to="/" className="flex items-center">
             <img 
               src={logo} 
@@ -26,33 +23,31 @@ export default function Navbar() {
           </Link>
           
           {/* Slogan */}
-          <span className="hidden lg:block text-sm text-gray-500 font-medium border-l border-gray-300 pl-4">
+          <span className="hidden lg:block text-sm text-gray-600 font-medium border-l border-gray-400 pl-4">
             Don't trust your home to a stranger. Hire a proven professional.
           </span>
         </div>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6 font-medium">
-          <Link to="/" className="text-gray-600 hover:text-blue-600 transition-colors">Home</Link>
-          <Link to="/services" className="text-gray-600 hover:text-blue-600 transition-colors">Services</Link>
-          <Link to="/airbnb" className="text-gray-600 hover:text-blue-600 transition-colors">Airbnb Management</Link>
+          <Link to="/" className="text-gray-700 hover:text-red-700 transition-colors">Home</Link>
+          <Link to="/services" className="text-gray-700 hover:text-red-700 transition-colors">Services</Link>
+          <Link to="/airbnb" className="text-gray-700 hover:text-red-700 transition-colors">Airbnb Management</Link>
           
-          {/* Added Testimonials Link */}
-          <a href="/#testimonials" className="text-gray-600 hover:text-blue-600 transition-colors">Testimonials</a>
+          <a href="/#testimonials" className="text-gray-700 hover:text-red-700 transition-colors">Testimonials</a>
           
-          {/* Added Phone Number CTA */}
-          <a href="tel:+442030048983" className="text-gray-900 hover:text-blue-600 font-bold transition-colors pl-2 border-l border-gray-200">
+          <a href="tel:+442030048983" className="text-gray-900 hover:text-red-700 font-bold transition-colors pl-2 border-l border-gray-400">
             020 3004 8983
           </a>
 
-          <Link to="/contact" className="px-5 py-2.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-sm">
+          <Link to="/contact" className="px-5 py-2.5 bg-red-700 text-white rounded-md hover:bg-red-800 transition-colors shadow-sm">
             Get a Quote
           </Link>
         </div>
 
         {/* Mobile Menu Toggle (Hamburger Icon) */}
         <button 
-          className="md:hidden p-2 text-gray-600 hover:text-blue-600" 
+          className="md:hidden p-2 text-gray-700 hover:text-red-700" 
           onClick={() => setIsOpen(!isOpen)}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,18 +63,17 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden flex flex-col space-y-4 mt-4 pb-4 border-t border-gray-100 pt-4 px-2">
+        <div className="md:hidden flex flex-col space-y-4 mt-4 pb-4 border-t border-gray-300 pt-4 px-2">
           
-          <Link to="/" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/services" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Services</Link>
-          <Link to="/airbnb" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Airbnb Management</Link>
+          <Link to="/" className="block text-gray-700 hover:text-red-700 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/services" className="block text-gray-700 hover:text-red-700 font-medium" onClick={() => setIsOpen(false)}>Services</Link>
+          <Link to="/airbnb" className="block text-gray-700 hover:text-red-700 font-medium" onClick={() => setIsOpen(false)}>Airbnb Management</Link>
           
-          {/* dded Testimonials Link for Mobile */}
-          <a href="/#testimonials" className="block text-gray-600 hover:text-blue-600 font-medium" onClick={() => setIsOpen(false)}>Testimonials</a>
+          <a href="/#testimonials" className="block text-gray-700 hover:text-red-700 font-medium" onClick={() => setIsOpen(false)}>Testimonials</a>
           
           <a href="tel:+442030048983" className="block text-gray-900 font-bold py-2">Call: 020 3004 8983</a>
           
-          <Link to="/contact" className="inline-block text-center w-full px-5 py-2.5 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-sm" onClick={() => setIsOpen(false)}>
+          <Link to="/contact" className="inline-block text-center w-full px-5 py-2.5 bg-red-700 text-white rounded-md hover:bg-red-800 transition-colors shadow-sm" onClick={() => setIsOpen(false)}>
             Get a Quote
           </Link>
         </div>

@@ -67,7 +67,7 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative w-full bg-[#0F1626] border-b border-gray-100 flex flex-col md:block">
+      <section className="relative w-full bg-gray-900 border-b border-gray-100 flex flex-col md:block">
         
         {/* MOBILE VIEW */}
         <div className="block md:hidden w-full overflow-hidden relative">
@@ -88,10 +88,10 @@ export default function Home() {
         {/* BUTTONS */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-8 md:min-h-[500px] lg:h-[75vh] flex flex-col justify-end md:pb-12">
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto sm:self-end">
-            <Link to="/contact" className="px-8 py-4 sm:py-3 bg-blue-600 text-white font-bold text-center rounded-md hover:bg-blue-700 transition-colors text-lg shadow-lg">
+            <Link to="/contact" className="px-8 py-4 sm:py-3 bg-red-700 text-white font-bold text-center rounded-md hover:bg-red-800 transition-colors text-lg shadow-lg">
               Get a Free Quote
             </Link>
-            <Link to="/services" className="px-8 py-4 sm:py-3 bg-white text-blue-600 font-bold text-center rounded-md hover:bg-gray-50 transition-colors text-lg shadow-lg">
+            <Link to="/services" className="px-8 py-4 sm:py-3 bg-white text-red-700 font-bold text-center rounded-md hover:bg-gray-50 transition-colors text-lg shadow-lg">
               View Our Services
             </Link>
           </div>
@@ -107,7 +107,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
               Our Services
             </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-red-700 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -124,7 +124,7 @@ export default function Home() {
                   <div className="mt-auto flex justify-center">
                     <Link 
                       to="/contact" 
-                      className="px-6 py-2 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition-colors w-full text-center"
+                      className="px-6 py-2 bg-red-700 text-white font-bold rounded-md hover:bg-red-800 transition-colors w-full text-center"
                     >
                       Book this Service
                     </Link>
@@ -135,7 +135,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/services" className="text-blue-600 font-bold hover:underline text-lg">
+            <Link to="/services" className="text-red-700 font-bold hover:underline text-lg">
               View all our services &rarr;
             </Link>
           </div>
@@ -149,7 +149,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             Trusted by Homeowners
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full mb-12"></div>
+          <div className="w-24 h-1 bg-red-700 mx-auto rounded-full mb-12"></div>
           
           <div 
             className="tagembed-widget" 
