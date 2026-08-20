@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 // Import your background and service images here
@@ -20,6 +20,8 @@ import brand4Img from '../assets/brand4.png';
 import brand5Img from '../assets/brand5.png';
 
 export default function Home() {
+  // Create a reference point for the Trustmary widget
+  const widgetRef = useRef(null);
   
   const featuredServices = [
     { title: "Painting & Decorating", image: home4Img }, // Update with home6Img when ready
@@ -39,21 +41,22 @@ export default function Home() {
     { name: "Brand 5", image: brand5Img },
   ];
 
+  // Load Trustmary Widget
   useEffect(() => {
-    const existingScript = document.querySelector('script[src="https://widget.tagembed.com/embed.min.js"]');
-    if (existingScript) {
-      existingScript.remove();
-    }
+    // Make sure our target div actually exists first
+    if (!widgetRef.current) return;
 
     const script = document.createElement('script');
-    script.src = 'https://widget.tagembed.com/embed.min.js';
-    script.type = 'text/javascript';
+    script.src = 'https://widget.trustmary.com/3Usjta8ZI';
     script.async = true;
-    document.body.appendChild(script);
+    
+    // Inject the script directly into our specific div
+    widgetRef.current.appendChild(script);
 
     return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
+      // Clean up when leaving the page
+      if (widgetRef.current && widgetRef.current.contains(script)) {
+        widgetRef.current.removeChild(script);
       }
     };
   }, []);
@@ -98,7 +101,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Google Reviews Section - MOVED TO THE VERY TOP */}
+      {/* Google Reviews Section */}
       <section id="testimonials" className="py-20 bg-gray-50 px-6 border-b border-gray-200">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -106,12 +109,12 @@ export default function Home() {
           </h2>
           <div className="w-24 h-1 bg-red-700 mx-auto rounded-full mb-12"></div>
           
+          {/* Trustmary Widget Container */}
           <div 
-            className="tagembed-widget" 
-            style={{ width: '100%', height: '100%', overflow: 'auto' }} 
-            data-widget-id="331406" 
-            data-website="1"
-          ></div>
+            ref={widgetRef}
+            className="w-full min-h-[400px]" 
+          >
+          </div>
           
         </div>
       </section>
