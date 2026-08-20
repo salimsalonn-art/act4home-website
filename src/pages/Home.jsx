@@ -170,7 +170,10 @@ export default function Home() {
             <div 
               ref={carouselRef}
               onTouchStart={() => setIsAutoScrolling(false)}
+              onTouchEnd={() => setIsAutoScrolling(true)}
               onMouseDown={() => setIsAutoScrolling(false)}
+              onMouseUp={() => setIsAutoScrolling(true)}
+              onMouseLeave={() => setIsAutoScrolling(true)}
               className="flex overflow-x-auto gap-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
               {featuredServices.map((service, index) => (
