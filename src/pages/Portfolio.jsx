@@ -26,8 +26,8 @@ export default function Portfolio() {
   };
 
   const handleAdminLogin = () => {
-    const pin = prompt("Enter Admin PIN (Hint: 1234):");
-    if (pin === "1234") {
+    const pin = prompt("Enter Admin PIN :");
+    if (pin === "Ricco123") {
       setIsAdmin(true);
       alert("Admin mode unlocked! You can now add and delete images.");
     } else {
