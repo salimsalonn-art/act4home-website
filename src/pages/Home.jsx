@@ -204,7 +204,7 @@ export default function Home() {
 
             <div className="text-center mt-12">
               <Link to="/portfolio" className="text-red-700 font-bold hover:underline text-lg">
-                Check out our past jobs &rarr;
+                View Our Portfolio &rarr;
               </Link>
             </div>
 
