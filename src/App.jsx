@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import Airbnb from './pages/Airbnb';
 import Contact from './pages/Contact';
+import Portfolio from './pages/Portfolio';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/airbnb" element={<Airbnb />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/portfolio" element={<Portfolio />} />
           </Routes>
         </main>
 

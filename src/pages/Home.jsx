@@ -203,8 +203,8 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-12">
-              <Link to="/services" className="text-red-700 font-bold hover:underline text-lg">
-                View all our services &rarr;
+              <Link to="/portfolio" className="text-red-700 font-bold hover:underline text-lg">
+                Check out our past jobs &rarr;
               </Link>
             </div>
 
