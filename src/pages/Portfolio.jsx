@@ -130,7 +130,7 @@ export default function Portfolio() {
       <div className="flex-grow py-16 px-6">
         <div className="max-w-6xl mx-auto">
           {images.length === 0 ? (
-            <p className="text-center text-gray-500">No jobs uploaded yet. Log in to add some!</p>
+            <p className="text-center text-gray-500">No jobs uploaded yet.</p>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
               {images.map((job) => (

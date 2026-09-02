@@ -10,7 +10,8 @@ import home3Img from '../assets/home3.jpg';
 import home4Img from '../assets/home4.jpg'; 
 import home5Img from '../assets/home5.jpg'; 
 // Add your new Painting image here:
-// import home6Img from '../assets/home6.jpg'; 
+import home6Img from '../assets/home6.jpg'; 
+import portfolioImg from '../assets/portfolio.png'; // Added Portfolio image
 
 // Import your product/brand images here
 import brand1Img from '../assets/brand1.png';
@@ -57,7 +58,7 @@ export default function Home() {
   }, [isAutoScrolling]);
   
   const featuredServices = [
-    { title: "Painting & Decorating", image: home4Img }, // Update with home6Img when ready
+    { title: "Painting & Decorating", image: home6Img },
     { title: "Bespoke Kitchens", image: homeImg },
     { title: "Bathroom Upgrades", image: home1Img },
     { title: "Custom Carpentry", image: home2Img },
@@ -99,7 +100,7 @@ export default function Home() {
     <div className="flex flex-col w-full">
       
       {/* 24/7 Emergency Banner */}
-      <div className="bg-red-700 text-white font-bold text-center py-2 px-4 shadow-md z-20 relative">
+      <div className="bg-[#722F37] text-white font-bold text-center py-2 px-4 shadow-md z-20 relative">
         <p className="animate-pulse">🚨 24/7 Emergency Call-Outs Serving West London 🚨</p>
       </div>
 
@@ -125,10 +126,10 @@ export default function Home() {
         {/* BUTTONS */}
         <div className="relative z-10 w-full max-w-6xl mx-auto px-6 py-8 md:min-h-[500px] lg:h-[75vh] flex flex-col justify-end md:pb-12">
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto sm:self-end">
-            <Link to="/contact" className="px-8 py-4 sm:py-3 bg-red-700 text-white font-bold text-center rounded-md hover:bg-red-800 transition-colors text-lg shadow-lg">
+            <Link to="/contact" className="px-8 py-4 sm:py-3 bg-[#722F37] text-white font-bold text-center rounded-md hover:bg-[#5c252c] transition-colors text-lg shadow-lg">
               Get a Free Quote
             </Link>
-            <Link to="/services" className="px-8 py-4 sm:py-3 bg-white text-red-700 font-bold text-center rounded-md hover:bg-gray-50 transition-colors text-lg shadow-lg">
+            <Link to="/services" className="px-8 py-4 sm:py-3 bg-white text-[#722F37] font-bold text-center rounded-md hover:bg-gray-50 transition-colors text-lg shadow-lg">
               View Our Services
             </Link>
           </div>
@@ -139,12 +140,12 @@ export default function Home() {
       <div className="flex flex-col-reverse md:flex-col w-full">
 
         {/* Google Reviews Section */}
-        <section id="testimonials" className="py-20 bg-gray-50 px-6 border-b border-gray-200">
+        <section id="testimonials" className="py-20 bg-[#E5E5E5] px-6 border-b border-gray-200">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 font-heading" style={{ fontFamily: 'Montserrat, sans-serif' }}>
               Trusted by Homeowners
             </h2>
-            <div className="w-24 h-1 bg-red-700 mx-auto rounded-full mb-12"></div>
+            <div className="w-24 h-1 bg-[#722F37] mx-auto rounded-full mb-12"></div>
             
             {/* Trustmary Widget Container */}
             <div 
@@ -156,15 +157,40 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Portfolio Standalone Card Section */}
+        <section className="py-12 bg-[#E5E5E5] px-6 border-b border-gray-200">
+          <div className="max-w-6xl mx-auto flex justify-center">
+            <div className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow w-[85vw] sm:w-[350px]">
+              <div 
+                className="h-56 w-full bg-cover bg-center"
+                style={{ backgroundImage: `url(${portfolioImg})`, backgroundColor: '#e2e8f0' }}
+              ></div>
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-slate-900 mb-6 text-center" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                  Our Portfolio
+                </h3>
+                <div className="mt-auto flex justify-center">
+                  <Link 
+                    to="/portfolio" 
+                    className="px-6 py-2 bg-[#722F37] text-white font-bold rounded-md hover:bg-[#5c252c] transition-colors w-full text-center"
+                  >
+                    View Portfolio
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Featured Services Section */}
-        <section className="py-16 px-6 bg-white border-b border-gray-100">
+        <section className="py-16 px-6 bg-[#E5E5E5] border-b border-gray-100">
           <div className="max-w-6xl mx-auto">
             
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
                 Our Services
               </h2>
-              <div className="w-24 h-1 bg-red-700 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-[#722F37] mx-auto rounded-full"></div>
             </div>
 
             <div 
@@ -179,7 +205,9 @@ export default function Home() {
               {featuredServices.map((service, index) => (
                 <div 
                   key={index} 
-                  className="bg-gray-50 rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[85vw] sm:min-w-[350px] md:min-w-0 shrink-0"
+                  className={`bg-white rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-100 hover:shadow-lg transition-shadow min-w-[85vw] sm:min-w-[350px] md:min-w-0 shrink-0 ${
+                    index === 6 ? 'lg:col-start-2' : ''
+                  }`}
                 >
                   <div 
                     className="h-56 w-full bg-cover bg-center"
@@ -192,7 +220,7 @@ export default function Home() {
                     <div className="mt-auto flex justify-center">
                       <Link 
                         to="/contact" 
-                        className="px-6 py-2 bg-red-700 text-white font-bold rounded-md hover:bg-red-800 transition-colors w-full text-center"
+                        className="px-6 py-2 bg-[#722F37] text-white font-bold rounded-md hover:bg-[#5c252c] transition-colors w-full text-center"
                       >
                         Book this Service
                       </Link>
@@ -202,12 +230,6 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <Link to="/portfolio" className="text-red-700 font-bold hover:underline text-lg">
-                View Our Portfolio &rarr;
-              </Link>
-            </div>
-
           </div>
         </section>
       
@@ -215,7 +237,7 @@ export default function Home() {
       {/* --- END SWAPPABLE CONTAINER --- */}
 
       {/* Infinite Scrolling Product Marquee */}
-      <section className="py-12 bg-white overflow-hidden">
+      <section className="py-12 bg-[#E5E5E5] overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 mb-8 text-center">
           <h2 className="text-2xl font-bold text-slate-900 mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             Premium Materials We Trust
